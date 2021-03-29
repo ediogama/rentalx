@@ -12,13 +12,6 @@ class CategoriesRepository implements ICategoriesRepository {
   constructor() {
     this.repository = getRepository(Category);
   }
-  /*
-  public static getInstance(): CategoriesRepository {
-    if (!CategoriesRepository.INSTANCE) {
-      CategoriesRepository.INSTANCE = new CategoriesRepository();
-    }
-    return CategoriesRepository.INSTANCE;
-  } */
 
   async create({ name, description }: ICreateCategoryDTO): Promise<void> {
     const category = this.repository.create({
@@ -26,7 +19,7 @@ class CategoriesRepository implements ICategoriesRepository {
       description,
     });
 
-    this.repository.save(category);
+    await this.repository.save(category);
   }
 
   async list(): Promise<Category[]> {
