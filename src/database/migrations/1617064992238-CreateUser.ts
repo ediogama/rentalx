@@ -9,6 +9,7 @@ export class CreateUsers1617057051882 implements MigrationInterface {
           {
             name: "id",
             type: "uuid",
+            isPrimary: true,
           },
           {
             name: "name",
@@ -28,7 +29,7 @@ export class CreateUsers1617057051882 implements MigrationInterface {
             type: "varchar",
           },
           {
-            name: "driver_licence",
+            name: "driver_license",
             type: "varchar",
           },
           {
