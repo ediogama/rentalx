@@ -4,7 +4,7 @@ import { IUsersRepository } from "@modules/accounts/repositories/IUsersRepositor
 import { deleteFile } from "@utils/file";
 
 interface IRequest {
-  user_id: string;
+  user_id?: string;
   avatarFile: string;
 }
 
@@ -17,7 +17,7 @@ class UpdateUserAvatarUseCase {
   async execute({ user_id, avatarFile }: IRequest): Promise<void> {
     const user = await this.usersRepository.findByID(user_id);
 
-    if (user.avatar) {
+    if (user?.avatar) {
       await deleteFile(`./tmp/avatar/${user.avatar}`);
     }
 

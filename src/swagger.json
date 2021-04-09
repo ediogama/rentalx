@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "RentalX Documentation",
+        "title": "API RentalX Documentation",
         "description": "This is an API Rent",
         "version": "1.0.0",
         "contact": {
@@ -9,6 +9,50 @@
         }
     },
     "paths": {
+        "/users": {
+            "post": {
+                "tags": ["Users"],
+                "summary": "Create an user",
+                "description": "Create a new user",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "driver_licaense": {
+                                        "type": "string"
+                                    }
+                                },
+                                "example": {
+                                    "name": "Name user",
+                                    "password": "999999",
+                                    "email": "example@user.com",
+                                    "driver_license": "2233445566"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created"
+                    },
+                    "500": {
+                        "description": "Email already exists"
+                    }
+                }
+            }
+        },
         "/categories": {
             "post": {
                 "tags": ["Category"],
