@@ -4,7 +4,7 @@ import { IUsersRepository } from "@modules/accounts/repositories/IUsersRepositor
 import { deleteFile } from "@utils/file";
 
 interface IRequest {
-  user_id?: string;
+  user_id: string;
   avatarFile: string;
 }
 
